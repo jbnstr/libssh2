@@ -39,6 +39,18 @@
 #include "libssh2_config.h"
 #include "openssh_fixture.h"
 
+// JBO BEGIN
+#ifdef _WIN32
+#include <direct.h>
+#define getcwd _getcwd
+#define chdir _chdir
+#else
+#include "unistd.h"
+#endif
+// JBO END
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #ifdef HAVE_UNISTD_H

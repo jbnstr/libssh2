@@ -687,7 +687,7 @@ void _libssh2_aes_ctr_increment(unsigned char *ctr,
     }
 }
 
-static void * (* const volatile memset_libssh)(void *, int, size_t) = memset;
+static void * (__cdecl* const volatile memset_libssh)(void *, int, size_t) = memset;
 
 void _libssh2_explicit_zero(void *buf, size_t size)
 {
